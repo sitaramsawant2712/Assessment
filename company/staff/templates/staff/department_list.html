@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Department ListView</h1>
+  {% if department_list %}
+  <ul>
+    {% for dept in department_list %}
+      <li>
+        <a href="{{ dept.get_absolute_url }}">{{ dept.name }}</a>
+
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no department.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Employee ListView</h1>
+<a href="{% url 'employee-create' %}" class="btn btn-primary">Create Employee</a>
+{% if employee_list %}
+
+<div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>NAME</th>
+            <th>DATE OF BIRTH</th>
+            <th>DEPARTMENT</th>
+        </tr>
+        {% for emp in employee_list %}
+        <tr>
+            <td><a href="{{ emp.get_absolute_url }}">{{ emp.name }}</a></td>
+            <td>{{ emp.date_of_birth }}</td>
+            <td>{{ emp.department }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% else %}
+<p>There are no employee.</p>
+{% endif %}
+{% endblock %}

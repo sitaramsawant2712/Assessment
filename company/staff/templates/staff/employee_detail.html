@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Employee DetailView</h1>
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>Picture </td>
+            {% if object.picture %}
+                <td><img src="{{object.picture.url}}" width="250x" height="250px"></td>
+            {% else %}
+                <td><img width="250x" height="250px" style="background-color:#f5f2f2eb;"></td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>Name : </td>
+            <td>{{ object.name }}</td>
+
+        </tr>
+        <tr>
+            <td>Date of birth : </td>
+            <td>{{ object.date_of_birth }}</td>
+        </tr>
+        <tr>
+            <td>Department :</td>
+            <td>{{ object.department }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
